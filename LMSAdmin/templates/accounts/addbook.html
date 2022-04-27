@@ -1,0 +1,60 @@
+{%extends 'accounts/main.html'%}
+{% block content %}
+<div class="container">
+	<div class="table-title">
+		<div class="row">
+			<div class="col-sm-6">
+				<h2>Library Management System Admin Login</b></h2>
+			</div>
+			<div class="col-sm-6">
+	<a class="nav-link"  href="{% url 'addbook' %}"><button class="btn btn-success">Add Book</button></a>
+    <a class="nav-link" href="{% url 'adminlogin' %}"><button class="btn btn-success">DashBoard</button></a>
+    <a class="nav-link" href="{% url 'home' %}"><button class="btn btn-success">Home</button></a>	      
+</div>
+		</div>
+	</div>
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+                            <div class="col-xs-6">
+								<a href="#" class="active" id="register-form-link">ADD_BOOK</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="register-form" action="" method="POST" role="form">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="text" name="Bookname" id="bookname" tabindex="1" class="form-control" placeholder="Name of the Book" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="Author" id="Author" tabindex="1" class="form-control" placeholder="Author of the Book" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" name="Noofbooks" id="Noofbooks" tabindex="2" class="form-control" placeholder="Number of Books Available">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="Branch" id="Branch" tabindex="2" class="form-control" placeholder="Branch">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <button type="submit"  tabindex="4" class="form-control btn btn-register" value="Add Book">Add Book</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
