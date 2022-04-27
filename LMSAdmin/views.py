@@ -47,16 +47,19 @@ def registerPage(request):
 
 
 def loginPage(request):
+    global p2
     if request.method == 'POST':
         email = request.POST['email']
         password =request.POST['password']
         x=User.objects.all()
         for i in x:
+            p2=0
             if i.email==email and i.password==password:
+                p1=1
                 return redirect('adminlogin')
-            else:
-                messages.error(request, "Bad Credentials!!")
-                return redirect('login')
+        if(p2!=1):
+            messages.error(request, "Bad Credentials!!")
+            return redirect('login')
     
     return render(request, "accounts/login.html")
 
